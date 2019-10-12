@@ -1,8 +1,56 @@
-<p>area works!</p>
+<div class="area-container">
+  <mat-toolbar fxLayout="row" flex color="primary" class="header-toolbar">
+    <div fxFlex="10" fxLayout="row" fxLayoutAlign="start center">
+      <mat-icon aria-hidden="false" aria-label="menu" (click)="snav.toggle()">menu</mat-icon>
+    </div>
+    <div fxFlex="70" fxLayoutAlign="center center">
+      <form [formGroup]="stateForm">
+        <mat-form-field floatLabel="never">
+          <input
+            type="text"
+            matInput
+            placeholder="Select Area"
+            formControlName="stateGroup"
+            required
+            [matAutocomplete]="autoGroup"
+          />
+          <mat-autocomplete #autoGroup="matAutocomplete">
+            <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+              <mat-option *ngFor="let name of group.names" [value]="name">
+                {{ name }}
+              </mat-option>
+            </mat-optgroup>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+    <div fxFlex="20" fxLayoutAlign="end center">
+      <div [matMenuTriggerFor]="menu" class="round-small-image"></div>
+    </div>
+  </mat-toolbar>
 
-<button mat-raised-button routerLink="donors">donors</button>
-<button mat-raised-button routerLink="volunteers">volunteers</button>
-<button mat-raised-button routerLink="storage">storage</button>
-<button mat-raised-button routerLink="req-help">help</button>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #snav class="sidenav">
+      <mat-list>
+        <mat-list-item routerLink=".">Donars</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink=".">Volunteers</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink=".">Request Help</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink=".">Storage</mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-sidenav>
 
-<router-outlet></router-outlet>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Post</button>
+  <button mat-menu-item>Settings</button>
+  <button mat-menu-item>Logout</button>
+</mat-menu>
