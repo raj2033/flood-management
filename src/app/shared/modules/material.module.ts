@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +13,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 const MatModules = [
   MatCardModule,
@@ -25,6 +25,9 @@ const MatModules = [
   MatDividerModule,
   MatListModule,
   MatMenuModule,
+  MatInputModule,
+  MatIconModule,
+  MatToolbarModule,
   MatInputModule,
   FlexLayoutModule
 ];

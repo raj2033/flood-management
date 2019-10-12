@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
@@ -10,7 +10,10 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getDonors(areaName: string) {
-    return this.http.get(`${this.baseUrl}/auth/generate/${areaName}`);
+  login(params: JSON) {
+    return this.http.post(`${this.baseUrl}/auth/login/`, params);
+  }
+  register(params: JSON) {
+    return this.http.post(`${this.baseUrl}/auth/register/`, params);
   }
 }
