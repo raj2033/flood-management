@@ -8,20 +8,20 @@ const routes: Routes = [
     component: AreaComponent,
     children: [
       {
-        path: 'donors',
+        path: 'Donors',
         loadChildren: () => import('./donors/donors.module').then(m => m.DonorsModule)
       },
       {
-        path: 'volunteers',
+        path: 'Volunteers',
         loadChildren: () => import('./volunteers/volunteers.module').then(m => m.VolunteersModule)
       },
       {
-        path: 'req-help',
+        path: 'Help',
         loadChildren: () =>
           import('./request-help/request-help.module').then(m => m.RequestHelpModule)
       },
       {
-        path: 'storage',
+        path: 'Storage',
         loadChildren: () => import('./storage/storage.module').then(m => m.StorageModule)
       }
     ]

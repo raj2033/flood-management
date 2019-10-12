@@ -32,19 +32,21 @@
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #snav class="sidenav">
       <mat-list>
-        <mat-list-item routerLink=".">Donars</mat-list-item>
+        <mat-list-item routerLink="Donors">Donars</mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item routerLink=".">Volunteers</mat-list-item>
+        <mat-list-item routerLink="Volunteers">Volunteers</mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item routerLink=".">Request Help</mat-list-item>
+        <mat-list-item routerLink="Help">Request Help</mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item routerLink=".">Storage</mat-list-item>
+        <mat-list-item routerLink="Storage">Storage</mat-list-item>
         <mat-divider></mat-divider>
       </mat-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <router-outlet></router-outlet>
+      <div class="area-info-area">
+        <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
