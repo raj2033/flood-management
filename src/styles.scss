@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  color: #1b1b1b;
+  text-rendering: optimizeLegibility;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
