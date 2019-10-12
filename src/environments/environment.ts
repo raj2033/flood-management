@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ipAddress: 'http://172.18.13.156:8080'
 };
 
 /*
