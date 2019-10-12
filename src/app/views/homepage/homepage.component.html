@@ -1,4 +1,52 @@
-<p>homepage works!</p>
-<br />
-Please select an area to proceed
-<button mat-raised-button routerLink="/area/24">thoraipakkam</button>
+<mat-card class="header">
+  <div class="container show-flex">
+    <div class="logo-area">
+      <svg class="logo">
+        <use href="../../assets/images/logo.svg#logo"></use>
+      </svg>
+      <span>Konnecth</span>
+    </div>
+    <div class="login">
+      <button mat-button>Login</button>
+    </div>
+  </div>
+</mat-card>
+
+<div class="banner">
+  <div class="quote">
+    <p>For effective collaboration and communications between</p>
+    <p>authorities, volunteers and public.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="margins">
+    <h2>How it works?</h2>
+    <p><b>Donor:</b> Post what you are willing to contribute</p>
+    <p><b>Volunteer:</b> Collect donations, help resque operations, medical emergencies</p>
+    <p><b>Victim:</b> Connect with volunteers and post your needs</p>
+    <p>
+      <b>NGO </b>or Organization: Lend your space for shelter or to store the collected donations
+    </p>
+  </div>
+
+  <div class="margins">
+    <h4>Please select area to proceed</h4>
+
+    <div class="fields">
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <mat-select><mat-option value="Chennai">Chennai</mat-option></mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Area</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let area of areas" [value]="area">
+            {{ area }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary">Continue</button>
+  </div>
+</div>
