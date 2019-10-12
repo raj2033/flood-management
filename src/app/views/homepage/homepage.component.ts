@@ -10,5 +10,7 @@ export class HomepageComponent implements OnInit {
   areas = ['Thoraipakkam', 'Velachery'];
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(localStorage.getItem('key'));
+  }
 }
