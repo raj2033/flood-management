@@ -14,7 +14,11 @@
             formControlName="area"
             [matAutocomplete]="auto"
           />
-          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-autocomplete
+            #auto="matAutocomplete"
+            [displayWith]="displayFn"
+            (optionSelected)="changeLocation($event)"
+          >
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
               {{ option.locationName }}
             </mat-option>

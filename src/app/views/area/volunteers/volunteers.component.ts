@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IAreaAction } from 'src/app/models/area.model';
 import { AreaService } from 'src/app/services/area.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-volunteers',
@@ -10,9 +11,12 @@ import { AreaService } from 'src/app/services/area.service';
 export class VolunteersComponent implements OnInit {
   dataSource: IAreaAction[] = [];
   displayedColumns: string[] = ['Name', 'Qty', 'Item(s)', 'Location', 'Contact'];
-  constructor(private areaService: AreaService) {}
+  constructor(private areaService: AreaService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.areaService.getVolunteers().subscribe((data: IAreaAction[]) => (this.dataSource = data));
+    const areaId = parseInt(window.location.href.split('/')[4], 10);
+    this.areaService
+      .getVolunteers(areaId)
+      .subscribe((data: IAreaAction[]) => (this.dataSource = data));
   }
 }

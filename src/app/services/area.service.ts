@@ -12,21 +12,21 @@ export class AreaService {
 
   constructor(private http: HttpClient) {}
 
-  getDonations() {
+  getDonations(areaId: number) {
     return this.http.get(
-      `${this.baseUrl}/action/?locationId=43&actionType=RESOURCES_AVAILABLE&noOfDays=2&pageNo=0&noOfRecords=3`
+      `${this.baseUrl}/action/?locationId=${areaId}&actionType=RESOURCES_AVAILABLE&noOfDays=2&pageNo=0&noOfRecords=3`
     );
   }
 
-  getVolunteers() {
+  getVolunteers(areaId) {
     return this.http.get(
-      `${this.baseUrl}/action/?locationId=43&actionType=WANT_TO_HELP&noOfDays=2&pageNo=0&noOfRecords=3`
+      `${this.baseUrl}/action/?locationId=${areaId}&actionType=WANT_TO_HELP&noOfDays=2&pageNo=0&noOfRecords=3`
     );
   }
 
-  getRequests() {
+  getRequests(areaId) {
     return this.http.get(
-      `${this.baseUrl}/action/?locationId=43&actionType=NEED_HELP &noOfDays=2&pageNo=0&noOfRecords=3`
+      `${this.baseUrl}/action/?locationId=${areaId}&actionType=NEED_HELP &noOfDays=2&pageNo=0&noOfRecords=3`
     );
   }
 
