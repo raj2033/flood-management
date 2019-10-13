@@ -14,9 +14,10 @@ export class VolunteersComponent implements OnInit {
   constructor(private areaService: AreaService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    const areaId = parseInt(window.location.href.split('/')[4], 10);
-    this.areaService
-      .getVolunteers(areaId)
-      .subscribe((data: IAreaAction[]) => (this.dataSource = data));
+    this.route.parent.parent.params.subscribe(param => {
+      this.areaService
+        .getVolunteers(param.areaId)
+        .subscribe((data: IAreaAction[]) => (this.dataSource = data));
+    });
   }
 }

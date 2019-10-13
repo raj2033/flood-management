@@ -21,15 +21,12 @@ export class DonorsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    const areaId = parseInt(window.location.href.split('/')[4], 10);
-    this.areaService
-      .getDonations(areaId)
-      .pipe(takeUntil(this.subscriptions$))
-      .subscribe((data: IAreaAction[]) => (this.dataSource = data));
-
-    // this.router.routeReuseStrategy.shouldReuseRoute = () => {
-    //   return false;
-    // };
+    this.route.parent.parent.params.subscribe(param => {
+      this.areaService
+        .getDonations(param.areaId)
+        .pipe(takeUntil(this.subscriptions$))
+        .subscribe((data: IAreaAction[]) => (this.dataSource = data));
+    });
   }
 
   ngOnDestroy() {
