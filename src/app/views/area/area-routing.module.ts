@@ -8,7 +8,7 @@ const routes: Routes = [
     component: AreaComponent,
     children: [
       {
-        path: 'Donors',
+        path: 'Donations',
         loadChildren: () => import('./donors/donors.module').then(m => m.DonorsModule)
       },
       {

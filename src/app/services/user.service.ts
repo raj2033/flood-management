@@ -10,6 +10,12 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  getApi() {
+    return localStorage.getItem('token');
+  }
+  setApi(token) {
+    localStorage.setItem('token', token);
+  }
   login(params: JSON) {
     return this.http.post(`${this.baseUrl}/auth/login/`, params);
   }
