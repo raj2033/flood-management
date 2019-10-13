@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { IStorage, IStorageList } from '../models/area.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +36,13 @@ export class AreaService {
 
   submitAction(params: JSON) {
     return this.http.post(`${this.baseUrl}/action/`, params);
+  }
+
+  getAllStorages(locationId: number): Observable<IStorageList[]> {
+    return this.http.get<IStorageList[]>(`${this.baseUrl}/storage/location/${locationId}`);
+  }
+
+  getStorageData(storageId: number): Observable<IStorage[]> {
+    return this.http.get<IStorage[]>(`${this.baseUrl}/storage/item/show/${storageId}`);
   }
 }
