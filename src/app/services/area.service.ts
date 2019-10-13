@@ -14,19 +14,19 @@ export class AreaService {
 
   getDonations(areaId: number) {
     return this.http.get(
-      `${this.baseUrl}/action/?locationId=${areaId}&actionType=RESOURCES_AVAILABLE&noOfDays=2&pageNo=0&noOfRecords=3`
+      `${this.baseUrl}/action/?locationId=${areaId}&actionType=RESOURCES_AVAILABLE&noOfDays=2&pageNo=0&noOfRecords=10`
     );
   }
 
   getVolunteers(areaId) {
     return this.http.get(
-      `${this.baseUrl}/action/?locationId=${areaId}&actionType=WANT_TO_HELP&noOfDays=2&pageNo=0&noOfRecords=3`
+      `${this.baseUrl}/action/?locationId=${areaId}&actionType=WANT_TO_HELP&noOfDays=2&pageNo=0&noOfRecords=10`
     );
   }
 
   getRequests(areaId) {
     return this.http.get(
-      `${this.baseUrl}/action/?locationId=${areaId}&actionType=NEED_HELP &noOfDays=2&pageNo=0&noOfRecords=3`
+      `${this.baseUrl}/action/?locationId=${areaId}&actionType=NEED_HELP &noOfDays=2&pageNo=0&noOfRecords=10`
     );
   }
 

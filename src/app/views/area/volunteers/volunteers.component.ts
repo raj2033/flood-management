@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VolunteersComponent implements OnInit {
   dataSource: IAreaAction[] = [];
-  displayedColumns: string[] = ['Name', 'Qty', 'Item(s)', 'Location', 'Contact'];
+  displayedColumns: string[] = ['Name', 'Location', 'Contact'];
   constructor(private areaService: AreaService, private route: ActivatedRoute) {}
 
   ngOnInit() {

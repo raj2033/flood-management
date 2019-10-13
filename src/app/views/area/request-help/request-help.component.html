@@ -1,4 +1,4 @@
-<div flex fxLayoutAlign="center center" style="margin-bottom: 10px;">
+<div flex fxLayoutAlign="center center" style="margin-bottom: 10px;" fxLayout="column">
   <button
     mat-raised-button
     class="donate"
@@ -8,4 +8,30 @@
   >
     I need help
   </button>
+  <div flex fxLayoutAlign="start center" fxLayout="column">
+    <p class="area-sub-heading">Help Required</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="overflow-table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.postedByUser.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Contact">
+        <th mat-header-cell *matHeaderCellDef>Contact</th>
+        <td mat-cell *matCellDef="let element">{{ element.postedByUser.mobile }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Help">
+        <th mat-header-cell *matHeaderCellDef>Help</th>
+        <td mat-cell *matCellDef="let element">{{ element.itemName }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
 </div>
