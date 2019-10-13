@@ -23,6 +23,18 @@ const routes: Routes = [
       {
         path: 'Storage',
         loadChildren: () => import('./storage/storage.module').then(m => m.StorageModule)
+      },
+      {
+        path: 'Donations/action-form',
+        loadChildren: () => import('./action-form/action-form.module').then(m => m.ActionFormModule)
+      },
+      {
+        path: 'Volunteers/action-form',
+        loadChildren: () => import('./action-form/action-form.module').then(m => m.ActionFormModule)
+      },
+      {
+        path: 'Help/action-form',
+        loadChildren: () => import('./action-form/action-form.module').then(m => m.ActionFormModule)
       }
     ]
   }

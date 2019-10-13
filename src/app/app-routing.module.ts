@@ -22,6 +22,11 @@ const routes: Routes = [
     path: 'not-found',
     loadChildren: () => import('./views/not-found/not-found.module').then(m => m.NotFoundModule)
   },
+  // {
+  //   path: 'action-form',
+  //   loadChildren: () =>
+  //     import('./views/area/action-form/action-form.module').then(m => m.ActionFormModule)
+  // },
   {
     path: '**',
     redirectTo: 'not-found'
