@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -45,7 +45,12 @@ export class ActionFormComponent implements OnInit {
   options: any;
   filteredOptions: Observable<string[]>;
   type: string;
-  constructor(private fb: FormBuilder, private areaService: AreaService, route: ActivatedRoute) {
+  constructor(
+    private fb: FormBuilder,
+    private areaService: AreaService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     route.queryParams.subscribe(params => {
       this.type = params.type;
     });
@@ -113,17 +118,20 @@ export class ActionFormComponent implements OnInit {
     if (this.type === 'WANT_TO_HELP') {
       params['locationId'] = this.actionForm.get('area').value.locationId;
       params['itemName'] = this.actionForm.get('serviceOffered').value;
+      params['actionType'] = 'WANT_TO_HELP';
     } else if (this.type === 'RESOURCES_AVAILABLE') {
       params['locationId'] = this.actionForm.get('area').value.locationId;
       params['itemName'] = this.actionForm.get('itemName').value;
       params['itemQuantity'] = this.actionForm.get('itemQuantity').value;
+      params['actionType'] = 'RESOURCES_AVAILABLE';
     } else if (this.type === 'NEED_HELP') {
       params['locationId'] = this.actionForm.get('area').value.locationId;
       params['itemName'] = this.actionForm.get('needHelp').value;
       params['description'] = this.actionForm.get('description').value;
+      params['actionType'] = 'NEED_HELP';
     }
     this.areaService.submitAction(params).subscribe(data => {
-      console.log(data);
+      this.router.navigate(['../../../'], { relativeTo: this.route, queryParams: null });
     });
   }
 
