@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit {
     params['userIdentifier'] = this.loginForm.get('username').value;
     params['password'] = this.loginForm.get('password').value;
     this.userService.login(params).subscribe(
-      data => {
-        if (data['message']) {
-          this.router.navigate(['']); //TODO: add link here
-          localStorage.setItem('key', data['message']);
+      (data: any) => {
+        if (data.message) {
+          this.router.navigate(['area/43/Donation']);
+          localStorage.setItem('token', data.message);
         }
       },
       err => console.error(err),
