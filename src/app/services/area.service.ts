@@ -45,4 +45,7 @@ export class AreaService {
   getStorageData(storageId: number): Observable<IStorage[]> {
     return this.http.get<IStorage[]>(`${this.baseUrl}/storage/item/show/${storageId}`);
   }
+  saveStorage(params: JSON) {
+    return this.http.post(`${this.baseUrl}/storage/item/save/`, params);
+  }
 }

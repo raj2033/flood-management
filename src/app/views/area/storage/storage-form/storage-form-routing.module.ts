@@ -1,11 +1,11 @@
+import { StorageFormComponent } from './storage-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { StorageComponent } from './storage.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: StorageComponent
+    component: StorageFormComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class StorageRoutingModule {}
+export class StorageFormRoutingModule {}

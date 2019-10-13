@@ -13,6 +13,6 @@ export class VolunteersComponent implements OnInit {
   constructor(private areaService: AreaService) {}
 
   ngOnInit() {
-    this.areaService.getRequests().subscribe((data: IAreaAction[]) => (this.dataSource = data));
+    this.areaService.getVolunteers().subscribe((data: IAreaAction[]) => (this.dataSource = data));
   }
 }

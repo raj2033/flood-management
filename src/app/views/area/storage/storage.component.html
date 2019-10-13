@@ -1,3 +1,8 @@
+<div flex fxLayoutAlign="center center" style="margin-bottom: 10px;">
+  <button mat-raised-button class="donate" color="primary" routerLink="storage-form">
+    Add Stock
+  </button>
+</div>
 <mat-accordion>
   <mat-expansion-panel (opened)="planelOpened(storage.centreId)" *ngFor="let storage of storages">
     <mat-expansion-panel-header>

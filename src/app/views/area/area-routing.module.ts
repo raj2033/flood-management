@@ -1,3 +1,4 @@
+import { StorageFormModule } from './storage/storage-form/storage-form.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AreaComponent } from './area.component';
@@ -35,6 +36,11 @@ const routes: Routes = [
       {
         path: 'Help/action-form',
         loadChildren: () => import('./action-form/action-form.module').then(m => m.ActionFormModule)
+      },
+      {
+        path: 'Storage/storage-form',
+        loadChildren: () =>
+          import('./storage/storage-form/storage-form.module').then(m => m.StorageFormModule)
       }
     ]
   }

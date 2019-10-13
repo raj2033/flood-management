@@ -29,7 +29,12 @@
     <div fxFlexFill flex *ngIf="type === 'NEED_HELP'">
       <mat-label>What do you need ?</mat-label>
       <mat-selection-list formControlName="needHelp">
-        <mat-list-option required checkboxPosition="before" *ngFor="let help of needHelpOptions">
+        <mat-list-option
+          required
+          checkboxPosition="before"
+          *ngFor="let help of needHelpOptions"
+          [value]="help"
+        >
           {{ help }}
         </mat-list-option>
       </mat-selection-list>
