@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+$primary: #607d8b;
 html,
 body {
   height: 100%;
@@ -37,4 +37,7 @@ a {
   height: 3px;
   background: #607d8b;
   margin: 5px 0px;
+}
+.form-container {
+  padding: 20px;
 }

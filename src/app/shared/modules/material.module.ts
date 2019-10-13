@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 
 const MatModules = [
   MatCardModule,
@@ -31,7 +32,8 @@ const MatModules = [
   MatToolbarModule,
   MatInputModule,
   FlexLayoutModule,
-  MatTableModule
+  MatTableModule,
+  MatRadioModule
 ];
 
 @NgModule({

@@ -4,22 +4,20 @@
       <mat-icon aria-hidden="false" aria-label="menu" (click)="snav.toggle()">menu</mat-icon>
     </div>
     <div fxFlex="70" fxLayoutAlign="center center">
-      <form [formGroup]="stateForm">
+      <form [formGroup]="areaForm">
         <mat-form-field floatLabel="never">
           <input
             type="text"
-            matInput
             placeholder="Select Area"
-            formControlName="stateGroup"
-            required
-            [matAutocomplete]="autoGroup"
+            aria-label="Area"
+            matInput
+            formControlName="area"
+            [matAutocomplete]="auto"
           />
-          <mat-autocomplete #autoGroup="matAutocomplete">
-            <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
-              <mat-option *ngFor="let name of group.names" [value]="name">
-                {{ name }}
-              </mat-option>
-            </mat-optgroup>
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{ option.locationName }}
+            </mat-option>
           </mat-autocomplete>
         </mat-form-field>
       </form>

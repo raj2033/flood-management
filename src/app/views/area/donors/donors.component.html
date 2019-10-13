@@ -1,4 +1,12 @@
-<button mat-raised-button class="donate">Donate Now</button>
+<button
+  mat-raised-button
+  class="donate"
+  [routerLink]="['/action-form']"
+  [queryParams]="{ type: RESOURCES_AVAILABLE }"
+>
+  Donate Now
+</button>
+<button [routerLink]="['/action-form']" [queryParams]="{ type: RESOURCES_AVAILABLE }">Click</button>
 <p class="area-sub-heading">Donations available for collection</p>
 <div class="divider"></div>
 
