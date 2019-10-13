@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 
 export interface Location {
   latitude: number;
@@ -20,7 +21,11 @@ export class AreaComponent implements OnInit {
   areaForm: FormGroup;
   options: any;
   filteredOptions: Observable<Location[]>;
-  constructor(private areaService: AreaService) {
+  constructor(
+    private areaService: AreaService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.areaService.getAllArea().subscribe(data => {
       this.options = data;
       this.filteredOptions = this.areaForm.get('area').valueChanges.pipe(
@@ -35,6 +40,8 @@ export class AreaComponent implements OnInit {
     this.areaForm = new FormGroup({
       area: new FormControl('')
     });
+    const areaId = this.route.snapshot.paramMap.get('areaId');
+    this.router.navigate(['Donations'], { relativeTo: this.route });
   }
 
   displayFn(location?: Location): string | undefined {
