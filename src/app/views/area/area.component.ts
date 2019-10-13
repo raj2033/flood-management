@@ -21,6 +21,7 @@ export class AreaComponent implements OnInit {
   areaForm: FormGroup;
   options: any;
   filteredOptions: Observable<Location[]>;
+  userInitial: string;
   constructor(
     private areaService: AreaService,
     private router: Router,
@@ -48,6 +49,7 @@ export class AreaComponent implements OnInit {
         map(locationName => (locationName ? this._filter(locationName) : this.options.slice()))
       );
     });
+    this.userInitial = localStorage.getItem('initial');
   }
 
   ngOnInit() {

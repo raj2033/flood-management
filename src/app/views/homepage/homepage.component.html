@@ -4,10 +4,7 @@
       <svg class="logo">
         <use href="../../assets/images/logo.svg#logo"></use>
       </svg>
-      <span>Konnecth</span>
-    </div>
-    <div class="login">
-      <button mat-button>Login</button>
+      <span>Assist</span>
     </div>
   </div>
 </mat-card>
@@ -20,20 +17,43 @@
 </div>
 
 <div class="container">
+  <form [formGroup]="areaForm" fxLayout="row" fxLayoutGap="10px" id="areaForm">
+    <mat-form-field floatLabel="never">
+      <input
+        type="text"
+        placeholder="Please select area"
+        aria-label="Area"
+        matInput
+        formControlName="area"
+        [matAutocomplete]="auto"
+        required
+      />
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{ option.locationName }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="continue()"
+      [disabled]="isContinueDisabled()"
+    >
+      Continue
+    </button>
+  </form>
   <div class="margins">
-    <h2>How it works?</h2>
-    <p><b>Donor:</b> Post what you are willing to contribute</p>
-    <p><b>Volunteer:</b> Collect donations, help resque operations, medical emergencies</p>
-    <p><b>Victim:</b> Connect with volunteers and post your needs</p>
-    <p>
-      <b>NGO </b>or Organization: Lend your space for shelter or to store the collected donations
-    </p>
+    <p>If you are in distress let us know.</p>
+    <p>If you want to help people in distress you are welcome to join us.</p>
+    <p>Workers on the ground... we will be nothing without you</p>
+    <p>Lend your space for keeping important stuff safe</p>
   </div>
 
   <div class="margins">
-    <h4>Please select area to proceed</h4>
+    <!-- <h4>Please select area to proceed</h4> -->
 
-    <div class="fields">
+    <!-- <div class="fields">
       <mat-form-field>
         <mat-label>City</mat-label>
         <mat-select><mat-option value="Chennai">Chennai</mat-option></mat-select>
@@ -46,7 +66,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </div>
-    <button mat-raised-button color="primary">Continue</button>
+    </div> -->
+    <!-- <button mat-raised-button color="primary">Continue</button> -->
   </div>
 </div>

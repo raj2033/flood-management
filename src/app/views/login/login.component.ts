@@ -46,9 +46,10 @@ export class LoginComponent implements OnInit {
     params['password'] = this.loginForm.get('password').value;
     this.userService.login(params).subscribe(
       (data: any) => {
-        if (data.message) {
-          this.router.navigate(['area/43/Donation']);
-          localStorage.setItem('token', data.message);
+        if (data['message']) {
+          localStorage.setItem('token', `Bearer ${data.message}`);
+          localStorage.setItem('initial', data['responseObject'].name.charAt(0));
+          this.router.navigate(['/homepage']);
         }
       },
       err => console.error(err),

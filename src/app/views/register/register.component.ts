@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material/core';
 import {
@@ -25,7 +26,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   matcher: MyErrorStateMatcher;
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -50,14 +51,13 @@ export class RegisterComponent implements OnInit {
     params['password'] = this.registerForm.get('password').value;
     params['email'] = this.registerForm.get('email').value;
     params['mobile'] = this.registerForm.get('mobileNumber').value;
-    console.log(params);
-    this.userService
-      .register(params)
-      .subscribe(
-        data => console.log(data),
-        err => console.error(err),
-        () => console.log('Observer got a complete notification')
-      );
+    this.userService.register(params).subscribe(
+      data => {
+        this.router.navigate(['login']);
+      },
+      err => console.error(err),
+      () => console.log('Observer got a complete notification')
+    );
   }
 
   isRegisterDisabled() {
