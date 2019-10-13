@@ -13,7 +13,7 @@ import { Subject } from 'rxjs';
 export class DonorsComponent implements OnInit, OnDestroy {
   subscriptions$ = new Subject();
   dataSource: IAreaAction[] = [];
-  displayedColumns: string[] = ['Name', 'Qty', 'Item(s)', 'Location', 'Contact'];
+  displayedColumns: string[] = ['Name', 'Qty', 'Item(s)', 'Contact'];
   constructor(
     private areaService: AreaService,
     private route: ActivatedRoute,
