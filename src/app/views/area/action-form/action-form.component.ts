@@ -126,7 +126,9 @@ export class ActionFormComponent implements OnInit {
       params['actionType'] = 'RESOURCES_AVAILABLE';
     } else if (this.type === 'NEED_HELP') {
       params['locationId'] = this.actionForm.get('area').value.locationId;
-      params['itemName'] = this.actionForm.get('needHelp').value;
+      var help = this.actionForm.get('needHelp').value;
+      console.log(help);
+      params['itemName'] = help.toString();
       params['description'] = this.actionForm.get('description').value;
       params['actionType'] = 'NEED_HELP';
     }
